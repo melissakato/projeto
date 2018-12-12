@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.melissa.desafio.controller.GastosController;
 import com.melissa.desafio.model.Categoria;
 import com.melissa.desafio.model.Gasto;
@@ -37,7 +37,7 @@ public class GastosControllerTest {
 	private GastoService gastoService;
 
 	
-	//@Test
+	@Test
 	public void testInsertGastos() throws Exception {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date data = sdf.parse("2018-11-26");
@@ -52,18 +52,21 @@ public class GastosControllerTest {
 		
 		Mockito.when(
 				gastoService.insert(listaMockGasto)).thenReturn(listaMockGasto);
+		
+		String body = (new ObjectMapper()).valueToTree(listaMockGasto).toString();
 
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.post(
-				"/api/v1/gastos",mockGasto).accept(
-				MediaType.APPLICATION_JSON_VALUE);
+				"/api/v1/gastos").content(body).contentType(MediaType.APPLICATION_JSON);
 
 		MvcResult result = mock.perform(requestBuilder).andReturn();
 
 		System.out.println(result.getResponse());
-		String expected = "200";
+		int expected = 200;
 
-		Assert.assertEquals(expected, result.getResponse().getStatus(), false);
+		Assert.assertEquals(expected, result.getResponse().getStatus());
+		
 	}
+	
 	
 	@Test
 	public void testInsertGastoCategoria() throws Exception {
@@ -72,25 +75,25 @@ public class GastosControllerTest {
 		
 		Categoria mockCategoria = new Categoria(1L, "descricao categoria");
 		
-		Gasto mockGasto = new Gasto(1L, "descricao gasto", 10.11D, 1L, null, mockCategoria);
+		Gasto mockGasto = new Gasto(1L, "descricao gasto", 10.11D, 1L, data, mockCategoria);
 		
+		String body = (new ObjectMapper()).valueToTree(mockGasto).toString();
 		
 		Mockito.when(
 				gastoService.insert(mockGasto)).thenReturn(mockGasto);
-
+		
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.post(
-				"/api/v1/gastos/categoria", mockGasto).accept(
-				MediaType.APPLICATION_JSON_VALUE);
+				"/api/v1/gastos/categoria").content(body).contentType(MediaType.APPLICATION_JSON);
 
 		MvcResult result = mock.perform(requestBuilder).andReturn();
 
 		System.out.println(result.getResponse());
-		String expected = "200";
+		int expected = 200;
 
-		Assert.assertEquals(expected, result.getResponse().getStatus(), false);
+		Assert.assertEquals(expected, result.getResponse().getStatus());
 	}
 
-	//@Test
+	@Test
 	public void testFindGastosByCodigoUsuario() throws Exception {
 		Date data = new Date();
 		Gasto mockGasto = new Gasto(1L, "teste", 10.00D, 1L, null);
@@ -115,7 +118,7 @@ public class GastosControllerTest {
 	}
 	
 	
-	//@Test
+	@Test
 	public void testFindGastosByDataAndCodigoUsuario() throws Exception {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

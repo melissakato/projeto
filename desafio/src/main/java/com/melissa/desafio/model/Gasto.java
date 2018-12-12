@@ -24,7 +24,7 @@ public class Gasto {
 	@Temporal(value = TemporalType.DATE)
 	private Date data;
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)  
-	@JoinColumn(name = "emppositionid") 
+	@JoinColumn(name = "id") 
 	private Categoria categoria;
 	
 	public Gasto() {

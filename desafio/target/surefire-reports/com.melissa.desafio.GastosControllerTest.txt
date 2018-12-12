@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.melissa.desafio.GastosControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.35 s <<< FAILURE! - in com.melissa.desafio.GastosControllerTest
-testInsertGastoCategoria(com.melissa.desafio.GastosControllerTest)  Time elapsed: 0.058 s  <<< FAILURE!
-java.lang.AssertionError: 200 expected:<400> but was:<false>
-	at com.melissa.desafio.GastosControllerTest.testInsertGastoCategoria(GastosControllerTest.java:90)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.554 s - in com.melissa.desafio.GastosControllerTest
