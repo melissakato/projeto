@@ -1,5 +1,14 @@
 package com.melissa.desafio.security;
 
+/**
+ * 
+ * @author Melissa Kato
+ * @since 11/12/18
+ * 
+ * Credenciais da conta.
+ *
+ */
+
 public class AccountCredentials {
 	
 	private String username;

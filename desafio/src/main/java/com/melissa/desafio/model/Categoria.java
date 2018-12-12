@@ -4,6 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * 
+ * @author melissa.kato
+ * @since 12/12/2018
+ * 
+ * Model Categoria do Gasto.
+ *
+ */
+
 @Entity
 public class Categoria {
 	

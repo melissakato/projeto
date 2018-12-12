@@ -11,6 +11,15 @@ import com.melissa.desafio.model.Gasto;
 import com.melissa.desafio.repository.GastoRepository;
 import com.melissa.desafio.service.GastoService;
 
+/**
+ * 
+ * @author melissa.kato
+ * @since 11/12/18
+ * 
+ * Implementação do serviço relacionado ao gasto do cartão.
+ *
+ */
+
 @Service
 public class GastoServiceImpl implements GastoService {
 	

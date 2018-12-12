@@ -1,5 +1,14 @@
 package com.melissa.desafio.security;
 
+/**
+ * 
+ * @author melissa.kato
+ * @since 11/12/18
+ * 
+ * JWT Login Filter
+ *
+ */
+
 import java.io.IOException;
 import java.util.Collections;
 

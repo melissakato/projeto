@@ -12,6 +12,15 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * 
+ * @author melissa.kato
+ * @since 12/12/2018
+ * 
+ * Model Gasto do Cartão.
+ *
+ */
+
 @Entity
 public class Gasto {
 	
@@ -23,7 +32,7 @@ public class Gasto {
 	private Long codigoUsuario;
 	@Temporal(value = TemporalType.DATE)
 	private Date data;
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)  
+	@OneToOne(cascade = CascadeType.ALL)  
 	@JoinColumn(name = "id") 
 	private Categoria categoria;
 	
@@ -47,7 +56,6 @@ public class Gasto {
 		this.data = data;
 		this.categoria = categoria;
 	}
-	
 	
 	public Long getId() {
 		return id;

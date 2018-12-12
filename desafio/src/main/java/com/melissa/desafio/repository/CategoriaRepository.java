@@ -8,12 +8,13 @@ import com.melissa.desafio.model.Categoria;
 
 /**
  * 
- * @author Melissa Kato
+ * @author melissa.kato
  * @since 11/12/18
  * 
- * Repositório Gastos
+ * Repositório Categoria
  *
  */
+
 @Repository
 public interface CategoriaRepository extends CrudRepository<Categoria, Long> {
 	

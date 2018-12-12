@@ -1,5 +1,14 @@
 package com.melissa.desafio.security;
 
+/**
+ * 
+ * @author melissa.kato
+ * @since 11/12/18
+ * 
+ * Token Authentication Service
+ *
+ */
+
 import java.util.Collections;
 import java.util.Date;
 
